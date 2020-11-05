@@ -8,7 +8,6 @@ isntall:
 
 script:
   - yarn test
-  - yarn run build
 
 deploy:
   provider: pages
