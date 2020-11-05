@@ -1,0 +1,4 @@
+{
+  "jwtPrivateKey": "gomovie_jwtPrivateKey",
+  "db": "gomovie"
+}

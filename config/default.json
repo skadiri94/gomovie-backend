@@ -1,0 +1,6 @@
+{
+  "jwtPrivateKey": "unsecureKey",
+  "db": "mongodb://localhost/gomovie",
+  "port": "27017",
+  "requiresAuth": true
+}
