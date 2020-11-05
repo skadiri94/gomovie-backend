@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "seed": "node seed.js",
-    "test": "jest --watchAll --verbose --coverage",
+    "test": "jest --watchAll=false --verbose --coverage",
     "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info"
   },
   "keywords": [],
