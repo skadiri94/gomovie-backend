@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1604590556553" clover="3.2.0">
-  <project timestamp="1604590556553" name="All files">
+<coverage generated="1604593490961" clover="3.2.0">
+  <project timestamp="1604593490961" name="All files">
     <metrics statements="335" coveredstatements="234" conditionals="74" coveredconditionals="27" methods="47" coveredmethods="23" elements="456" coveredelements="284" complexity="0" loc="335" ncloc="335" packages="5" files="24" classes="24">
       <package name="gomovie-backend">
         <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
