@@ -1,4 +1,4 @@
 {
   "jwtPrivateKey": "gomovie_jwtPrivateKey",
-  "db": "gomovie"
+  "db": "gomovie_db"
 }
