@@ -34,9 +34,6 @@
     "supertest": "^3.0.0"
   },
   "jest": {
-    "testURL": "http://localhost/gomovie_tests",
-    "modulePathIgnorePatterns": [
-      "<rootDir>/test/integration"
-    ]
+    "testURL": "http://localhost/gomovie_tests"
   }
 }
