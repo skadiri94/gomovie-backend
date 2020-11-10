@@ -8,40 +8,48 @@ const router = express.Router();
 const multer = require("multer");
 const cloudinary = require("cloudinary").v2;
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    var dirName = path.join(process.cwd(), "./files/");
-    console.log(dirName);
-    if (!fs.existsSync(dirName)) {
-      fs.mkdirSync(dirName);
-    }
-    cb(null, dirName);
-  },
+const ALLOWED_FORMAT = ["image/jpeg", "image/png", "image/jpg"];
 
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + "-" + file.originalname);
+const storage = multer.memoryStorage();
+const upload = multer({
+  storage,
+  fileFilter: function (req, file, cb) {
+    if (ALLOWED_FORMAT.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error("Not supported file format!"), false);
+    }
   },
 });
-const upload = multer({ storage: storage });
+
+const singleUpload = upload.single("image");
 
 router.get("/", async (req, res) => {
   const images = await Image.find().select("-__v").sort("img");
   res.send(images);
 });
 
-router.post("/", [auth, upload.single("image")], async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-  const data = {
-    image: req.file.path,
-  };
-  const result = await cloudinary.uploader.upload(data.image);
-  let image = new Image({
-    img: result.url,
-  });
-  image = await image.save();
+router.post("/", [auth, singleUpload], async (req, res) => {
+  try {
+    if (!req.file) {
+      throw new Error("Image is not presented!");
+    }
+    console.log(req.file);
+    // const { error } = validate(req.body);
+    // if (error) return res.status(400).send(error.details[0].message);
+    // const data = {
+    //   image: req.file.path,
+    // };
+    // const result = await cloudinary.uploader.upload(data.image);
+    // let image = new Image({
+    //   img: result.url,
+    // });
+    // image = await image.save();
 
-  res.send(image);
+    // res.send(image);
+  } catch (e) {
+    return res.status(422).send({ message: e.message });
+  }
 });
 
 // router.put("/:id", [auth, validateObjectId], async (req, res) => {
