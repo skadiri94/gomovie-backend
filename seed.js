@@ -3,7 +3,7 @@ const { Movie } = require("./models/movie");
 const mongoose = require("mongoose");
 
 const uri =
-  "mongodb+srv://user1:<password>@gomovie.le8bz.mongodb.net/gomovie?retryWrites=true&w=majority";
+  "mongodb+srv://user1:12345@gomovie.le8bz.mongodb.net/gomovie?retryWrites=true&w=majority";
 
 try {
   mongoose.connect(
@@ -18,33 +18,33 @@ const data = [
   {
     name: "Comedy",
     movies: [
-      { title: "Airplane", numberInStock: 5, dailyRentalRate: 2 },
-      { title: "The Hangover", numberInStock: 10, dailyRentalRate: 2 },
-      { title: "Wedding Crashers", numberInStock: 15, dailyRentalRate: 2 },
+      { title: "Airplane", numberInStock: 5, rating: 9.5 },
+      { title: "The Hangover", numberInStock: 10, rating: 9 },
+      { title: "Wedding Crashers", numberInStock: 15, rating: 8.5 },
     ],
   },
   {
     name: "Action",
     movies: [
-      { title: "Die Hard", numberInStock: 5, dailyRentalRate: 2 },
-      { title: "Terminator", numberInStock: 10, dailyRentalRate: 2 },
-      { title: "The Avengers", numberInStock: 15, dailyRentalRate: 2 },
+      { title: "Die Hard", numberInStock: 5, rating: 9.5 },
+      { title: "Terminator", numberInStock: 10, rating: 8.5 },
+      { title: "The Avengers", numberInStock: 15, rating: 5 },
     ],
   },
   {
     name: "Romance",
     movies: [
-      { title: "The Notebook", numberInStock: 5, dailyRentalRate: 2 },
-      { title: "When Harry Met Sally", numberInStock: 10, dailyRentalRate: 2 },
-      { title: "Pretty Woman", numberInStock: 15, dailyRentalRate: 2 },
+      { title: "The Notebook", numberInStock: 5, rating: 6.5 },
+      { title: "When Harry Met Sally", numberInStock: 10, rating: 5 },
+      { title: "Pretty Woman", numberInStock: 15, rating: 8 },
     ],
   },
   {
     name: "Thriller",
     movies: [
-      { title: "The Sixth Sense", numberInStock: 5, dailyRentalRate: 2 },
-      { title: "Gone Girl", numberInStock: 10, dailyRentalRate: 2 },
-      { title: "The Others", numberInStock: 15, dailyRentalRate: 2 },
+      { title: "The Sixth Sense", numberInStock: 5, rating: 7 },
+      { title: "Gone Girl", numberInStock: 10, rating: 8.6 },
+      { title: "The Others", numberInStock: 15, rating: 5 },
     ],
   },
 ];
